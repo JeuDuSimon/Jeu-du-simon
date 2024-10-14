@@ -1,0 +1,73 @@
+body .loader {
+  margin: 0;
+  padding: 0;
+}
+#score {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.loader {
+  width: 30%;
+  height: auto;
+  border-radius: 18px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.loader-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: relative;
+}
+.loader-circle::after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+}
+.loader-circle:nth-child(1) {
+  background-color: red;
+  animation: changeGrayscale 2s linear infinite;
+  animation-delay: 0.15s;
+}
+.loader-circle:nth-child(2) {
+  background-color: rgb(255, 200, 0);
+  animation: changeGrayscale 2s linear infinite;
+  animation-delay: 0.3s;
+}
+.loader-circle:nth-child(3) {
+  background-color: rgb(255, 136, 0);
+  animation: changeGrayscale 2s infinite;
+  animation-delay: 0.45s;
+}
+.loader-circle:nth-child(4) {
+  background-color: rgb(36, 182, 0);
+  animation: changeGrayscale 2s infinite;
+  animation-delay: 0.6s;
+}
+.loader-circle:nth-child(5) {
+  background-color: rgb(0, 0, 218);
+  animation: changeGrayscale 2s infinite;
+  animation-delay: 0.75s;
+}
+.loader-circle:nth-child(6) {
+  background-color: rgb(239, 18, 255);
+  animation: changeGrayscale 2s infinite;
+  animation-delay: 1s;
+}
+@keyframes changeGrayscale {
+  0%,
+  100% {
+    filter: brightness(0);
+  }
+  50% {
+    filter: brightness(100%);
+  }
+}

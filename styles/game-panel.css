@@ -1,0 +1,53 @@
+.game-container {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.choices {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#game-button {
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+}
+
+#game-button:hover {
+    opacity: 0.8;
+}
+
+#game-button:nth-child(1){
+    background-color: orange;
+}
+
+#game-button:nth-child(2){
+    background-color: violet;
+}
+
+#game-button:nth-child(3){
+    background-color: red;
+}
+
+#game-button:nth-child(4){
+    background-color: yellow;
+}
+
+#game-button:nth-child(5){
+    background-color: blue;
+}
+
+#game-button:nth-child(6){
+    background-color: green;
+}
+
+#background-screen {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+}

@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    place-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+    width: 100%;
+}
+
+.switch-panel {
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+}
+
+.switch-panel:hover {
+    background-color: rgba(138, 43, 226, 0.7);
+}
+
+.panel-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+/* FONT EN COMMUN */
