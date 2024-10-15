@@ -1,5 +1,4 @@
 let score = 0;
-let time = 300;
 let isUserTurn = false;
 
 const possibleColors = ["orange", "purple", "red", "yellow", "blue", "green"];
@@ -10,92 +9,83 @@ let clikedColors = [];
 
 const backgroundScreen = document.getElementById("background-screen");
 
-const generateRandomColor = (tab) => {
-  let selectedColor;
-  let RandomNumber = Math.floor(Math.random() * tab.length);
-  selectedColor = possibleColors[RandomNumber];
-  console.log(selectedColor);
+const generateRandomColor = () => {
+  const randomIndex = Math.floor(Math.random() * possibleColors.length);
+  const selectedColor = possibleColors[randomIndex];
   gameColorsPattern.push(selectedColor);
 };
 
 const highlightSelectedColor = (tab) => {
-  let delay = 1000; // Délai entre chaque couleur
+  let delay = 1000;
   tab.forEach((color, index) => {
     setTimeout(() => {
-      let highlightedColor = document.getElementById(color);
-      highlightedColor.style.opacity = "0.5"; // Diminue l'opacité
-      backgroundScreen.style.backgroundColor = color; // Change le fond
+      const highlightedColor = document.getElementById(color);
+      highlightedColor.style.opacity = "0.5";
+      backgroundScreen.style.backgroundColor = color;
 
-      // Remet l'opacité à 1 après un certain temps
       setTimeout(() => {
-        highlightedColor.style.opacity = "1"; // Rétablit l'opacité
-      }, 500); // Délai avant de remettre l'opacité
-    }, index * delay); // Calcule le délai en fonction de l'index
+        highlightedColor.style.opacity = "1";
+      }, 500);
+    }, index * delay);
   });
 
-  // Affiche l'écran blanc après la dernière couleur
   setTimeout(() => {
-    backgroundScreen.style.backgroundColor = "white"; // Change le fond à blanc
-  }, tab.length * delay); // Délai après toutes les couleurs
+    backgroundScreen.style.backgroundColor = "white";
+    isUserTurn = true; // C'est le tour du joueur
+    updateTurnDisplay();
+    userChooseAColor();
+  }, tab.length * delay);
 };
 
 const userChooseAColor = () => {
-  let buttonClicked = document.querySelectorAll(".game-button");
+  const buttonClicked = document.querySelectorAll(".game-button");
 
   buttonClicked.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.onclick = () => {
+      if (!isUserTurn) return; // Ignorer les clics si ce n'est pas le tour du joueur
+
       clikedColors.push(button.id);
       console.log(clikedColors);
       console.log(gameColorsPattern);
 
-      // Vérifiez si le motif est correct
-      let isCorrectPattern = true; // Variable pour suivre l'état du motif
-      for (let i = 0; i < clikedColors.length; i++) {
-        if (clikedColors[i] !== gameColorsPattern[i]) {
-          isCorrectPattern = false; // Si une couleur ne correspond pas, mettez à jour la variable
-          break; // Sortir de la boucle dès qu'une correspondance échoue
-        }
-      }
+      // Vérification du motif
+      if (clikedColors.length === gameColorsPattern.length) {
+        const isCorrectPattern = clikedColors.every((color, index) => color === gameColorsPattern[index]);
 
-      if (isCorrectPattern) {
-        if (clikedColors.length === gameColorsPattern.length) {
+        if (isCorrectPattern) {
           score++;
           document.querySelector("#score").innerHTML = score;
           clikedColors = [];
-          isUserTurn = !isUserTurn;
-          simonTurn(); // Appelle la fonction pour la prochaine étape
+          isUserTurn = false; // Fin du tour du joueur
+          updateTurnDisplay();
+          simonTurn(); // Passer au tour de Simon
+        } else {
+          alert("T'as perdu 👎🏻");
+          resetGame();
         }
-      } else {
-        alert("T'as perdu 👎🏻");
-        // Réinitialisez les variables pour recommencer
-        resetGame();
       }
-    });
+    };
   });
 };
 
-if (isUserTurn) {
-    state.innerHTML = "You";
-  } else {
-    state.innerHTML = "Simon";
-  }
-
 const simonTurn = () => {
-  generateRandomColor(possibleColors);
+  isUserTurn = false; // C'est le tour de Simon
+  generateRandomColor();
   highlightSelectedColor(gameColorsPattern);
-  isUserTurn = !isUserTurn;
 };
 
 const resetGame = () => {
   score = 0;
   clikedColors = [];
   gameColorsPattern = [];
-  document.querySelector("#score").innerHTML = score; // Réinitialiser l'affichage du score
-  simonTurn(); // Redémarre le jeu
+  document.querySelector("#score").innerHTML = score;
+  simonTurn();
+  updateTurnDisplay();
+};
+
+const updateTurnDisplay = () => {
+  state.innerHTML = isUserTurn ? "You" : "Simon";
 };
 
 // Démarre le jeu pour la première fois
 simonTurn();
-userChooseAColor();
-
-
