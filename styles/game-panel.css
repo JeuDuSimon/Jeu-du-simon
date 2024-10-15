@@ -10,7 +10,7 @@
     align-items: center;
     gap: 20px;
 }
-#game-button {
+.game-button {
     font-size: 16px;
     padding: 12px 25px;
     border-radius: 10px;
@@ -18,31 +18,31 @@
     color: black;
 }
 
-#game-button:hover {
+.game-button:hover {
     opacity: 0.8;
 }
 
-#game-button:nth-child(1){
+.game-button:nth-child(1){
     background-color: orange;
 }
 
-#game-button:nth-child(2){
+.game-button:nth-child(2){
     background-color: violet;
 }
 
-#game-button:nth-child(3){
+.game-button:nth-child(3){
     background-color: red;
 }
 
-#game-button:nth-child(4){
+.game-button:nth-child(4){
     background-color: yellow;
 }
 
-#game-button:nth-child(5){
+.game-button:nth-child(5){
     background-color: blue;
 }
 
-#game-button:nth-child(6){
+.game-button:nth-child(6){
     background-color: green;
 }
 
