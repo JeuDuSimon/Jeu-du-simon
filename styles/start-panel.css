@@ -33,41 +33,104 @@ body .loader {
   border-radius: 50%;
 }
 .loader-circle:nth-child(1) {
-  background-color: red;
-  animation: changeGrayscale 2s linear infinite;
+  background-color: #ffd51b;
+  animation: changeGrayscale 2.5s linear infinite;
   animation-delay: 0.15s;
 }
 .loader-circle:nth-child(2) {
-  background-color: rgb(255, 200, 0);
-  animation: changeGrayscale 2s linear infinite;
+  background-color: #bf00ff;
+  animation: changeGrayscale 2.5s linear infinite;
   animation-delay: 0.3s;
 }
 .loader-circle:nth-child(3) {
-  background-color: rgb(255, 136, 0);
-  animation: changeGrayscale 2s infinite;
+  background-color: #f0252f;
+  animation: changeGrayscale 2.5s infinite;
   animation-delay: 0.45s;
 }
 .loader-circle:nth-child(4) {
-  background-color: rgb(36, 182, 0);
-  animation: changeGrayscale 2s infinite;
+  background-color: #ff7627;
+  animation: changeGrayscale 2.5s infinite;
   animation-delay: 0.6s;
 }
 .loader-circle:nth-child(5) {
-  background-color: rgb(0, 0, 218);
-  animation: changeGrayscale 2s infinite;
+  background-color: #27deff;
+  animation: changeGrayscale 2.5s infinite;
   animation-delay: 0.75s;
 }
 .loader-circle:nth-child(6) {
-  background-color: rgb(239, 18, 255);
-  animation: changeGrayscale 2s infinite;
+  background-color: #41ff27;
+  animation: changeGrayscale 2.5s infinite;
   animation-delay: 1s;
 }
 @keyframes changeGrayscale {
-  0%,
-  100% {
-    filter: brightness(0);
+  0% {
+    filter: brightness(0%);
   }
   50% {
     filter: brightness(100%);
   }
+  100% {
+    filter: brightness(0%);
+  }
+}
+.neon {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
+    0 0 40px rgb(149, 0, 255), 0 0 80px rgb(153, 0, 255),
+    0 0 90px rgb(157, 0, 255), 0 0 100px rgb(246, 2, 198),
+    0 0 150px rgb(255, 0, 230);
+}
+:root {
+  font-size: calc(1vw + 1vh + 1.5vmin);
+}
+.container {
+  margin: 0 auto;
+}
+body {
+  background-color: black;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+}
+#title img {
+  position: relative;
+}
+.neon img {
+  text-align: center;
+  animation: neon 4s infinite;
+}
+@keyframes neon {
+  0% {
+    filter: brightness(50%);
+  }
+  50% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(50%);
+  }
+}
+a {
+  text-decoration: none;
+  filter: brightness(0.75);
+  transition: filter 1s;
+}
+a:hover {
+  filter: brightness(1);
+}
+body {
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
+}
+body.zoom-out {
+  transform: scale(0);
+}
+#background {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
 }
