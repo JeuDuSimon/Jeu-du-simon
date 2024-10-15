@@ -1,5 +1,6 @@
 let score = 0;
 let isUserTurn = false;
+let delay = 1000;
 
 const possibleColors = ["orange", "purple", "red", "yellow", "blue", "green"];
 const state = document.querySelector("#turn");
@@ -16,7 +17,6 @@ const generateRandomColor = () => {
 };
 
 const highlightSelectedColor = (tab) => {
-  let delay = 1000;
   tab.forEach((color, index) => {
     setTimeout(() => {
       const highlightedColor = document.getElementById(color);
@@ -59,8 +59,10 @@ const userChooseAColor = () => {
           isUserTurn = false; // Fin du tour du joueur
           updateTurnDisplay();
           simonTurn(); // Passer au tour de Simon
+          delay = delay - 50;
         } else {
-          alert("T'as perdu 👎🏻");
+           let layerEnd = document.getElementById('layer-blur');
+           layerEnd.style.display = "block";
           resetGame();
         }
       }
