@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="/styles/game-panel.css" />
     <title>Le jeu du super simon</title>
   </head>
-  <body>
+  <body class="container-simon">
     <div class="game-container">
       <div class="score-container">
         <section>
           <p class="body-font">SCORE :</p>
           <p class="body-font" id="score">0</p>
-          <p class="body-font">A <span id="turn">Simon</span></p>
         </section>
-          <h4 id="compteur">3</h4>
+        <div id="background-screen">
+          <p class="body-font" style="color: white">
+            A <span id="turn">Simon</span>
+          </p>
+        </div>
+        <h4 id="compteur">3</h4>
       </div>
       <div class="choices">
-        <div id="background-screen"></div>
         <div class="lampe">
           <img src="/assets/img/png/lampe jaune.png" alt="" />
           <button class="game-button jaune" id="yellow"></button>
@@ -49,19 +52,20 @@
       <div class="end-panel">
         <h2>SCORE : <strong id="score-fin">100</strong> points</h2>
         <div class="avatar-fin">
-          <img src="/assets/img/png/chibi_mascot.png" alt="">
+          <img src="/assets/img/png/chibi_mascot.png" alt="" />
           <div class="message-fin">
             <h3 id="message">Mémoire de poisson rouge</h3>
           </div>
         </div>
       </div>
       <div class="action-button">
-          <button id="replay">Rejouer</button>
-       <a href="/pages/index.html">
-        <button>Accueil</button>
-       </a>
+        <button id="replay">Rejouer</button>
+        <a href="/pages/index.html">
+          <button>Accueil</button>
+        </a>
       </div>
     </div>
+    <img class="socle" src="/assets/img/png/socle.png" alt="" />
     <script src="/script/main.js"></script>
     <script src="/script/simon.js"></script>
   </body>

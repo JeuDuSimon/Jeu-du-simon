@@ -30,7 +30,7 @@ const highlightSelectedColor = (tab) => {
   });
 
   setTimeout(() => {
-    backgroundScreen.style.backgroundColor = "white";
+    backgroundScreen.style.backgroundColor = "black";
     isUserTurn = true; // C'est le tour du joueur
     updateTurnDisplay();
     userChooseAColor();
