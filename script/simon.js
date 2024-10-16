@@ -83,6 +83,7 @@ const userChooseAColor = () => {
           replay.addEventListener("click", () => {
             resetGame();
             layerEnd.style.display = "none";
+            location.reload();
             updateCompteur(); // Démarrer le compteur
           });
         }

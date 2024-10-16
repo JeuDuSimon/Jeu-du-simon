@@ -1,6 +1,6 @@
 .game-container {
   padding: 100px 0;
-  display: flex;
+  
   flex-direction: column;
   gap: 70px;
   position: relative;
@@ -25,13 +25,41 @@
 }
 
 #background-screen {
-  height: 440px;
-  width: 781px;
+  height: 90%;
+  width: 90%;
   background-color: black;
   display: grid;
   place-content: center;
-  transform: translateY(200px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.screen {
+  height: 440px;
+  width: 781px;
+  transform: translateY(150px);
   z-index: -1;
+  position: relative;
+  animation: scale 500ms ease-in;
+}
+
+@keyframes scale {
+  0% {
+    scale: 0%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
+
+
+.screen img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -69,6 +97,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  height: 100vh;
   color: white;
 }
 
@@ -82,6 +111,40 @@ p {
 
 .lampe {
   position: relative;
+  animation: slide 300ms ease-in forwards; /* Ajout de forwards pour garder l'état final */
+}
+
+.lampe:nth-child(1) {
+  animation: slide 600ms ease-in forwards;
+}
+
+.lampe:nth-child(2) {
+  animation: slide 900ms ease-in forwards;
+}
+
+.lampe:nth-child(3) {
+  animation: slide 1200ms ease-in forwards;
+}
+
+.lampe:nth-child(4) {
+  animation: slide 1500ms ease-in forwards;
+}
+
+.lampe:nth-child(5) {
+  animation: slide 1800ms ease-in forwards;
+}
+
+.lampe:nth-child(6) {
+  animation: slide 2100ms ease-in forwards;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(1000px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .game-button {
@@ -206,4 +269,14 @@ p {
   bottom: 0;
   width: 100%;
   z-index: -1;
+  animation: slide 300ms ease-in forwards;
 }
+
+.gif {
+  position: absolute;
+  bottom: 170px;
+  right: -220px;
+  width: 500px;
+  z-index: -1;
+}
+
