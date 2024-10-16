@@ -1,37 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    place-content: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    gap: 20px;
-    width: 100%;
+:root {
+  --primary-font: "Pixelify Sans", sans-serif;
+  --primary-color: #f539d7;
+  --secondary-font: "Slackey", sans-serif;
+}
+
+body {
+  display: flex;
+  place-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+  width: 100%;
+  font-family: var(--primary-font);
 }
 
 .switch-panel {
-    font-size: 16px;
-    padding: 12px 25px;
-    border-radius: 10px;
-    border: none;
-    background-color: blueviolet;
-    color: white;
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  background-color: blueviolet;
+  color: white;
 }
 
 .switch-panel:hover {
-    background-color: rgba(138, 43, 226, 0.7);
+  background-color: rgba(138, 43, 226, 0.7);
 }
 
 .panel-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 /* FONT EN COMMUN */
+
+h2 {
+  font-size: 75px;
+}
+
+strong {
+  color: #f539d7;
+}
+
+h3 {
+  font-family: var(--secondary-font);
+  font-size: 25px;
+  max-width: 400px;
+  text-shadow: 3px 5px 2px #220452;
+}
+
+h4 {
+    font-family: var(--secondary-font);
+    font-size: 100px;
+}

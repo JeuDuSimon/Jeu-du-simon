@@ -1,6 +1,19 @@
+body {
+  background-image: url(/assets/img/png/indexbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+body #background {
+  display: flex;
+  position: fixed;
+  align-items: center;
+}
 body .loader {
-  margin: 0;
   padding: 0;
+  margin-top: 75px;
+  margin-bottom: 25px;
 }
 #score {
   display: flex;
@@ -9,13 +22,10 @@ body .loader {
 }
 .loader {
   width: 30%;
-  height: auto;
   border-radius: 18px;
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
+  justify-content: space-around;
 }
 .loader-circle {
   width: 25px;
@@ -103,6 +113,10 @@ body {
   text-align: center;
   animation: neon 4s infinite;
 }
+.neon {
+  text-align: center;
+  animation: neon 4s infinite;
+}
 @keyframes neon {
   0% {
     filter: brightness(50%);
@@ -129,8 +143,47 @@ body {
 body.zoom-out {
   transform: scale(0);
 }
-#background {
+body #background {
   width: 100%;
-  max-width: 100%;
+  height: 1180px;
+}
+body #title {
+  display: flex;
+  justify-content: center;
+}
+#title {
+  display: flex;
+  width: 100%;
+}
+#title #titre {
+  width: 70%;
+  top: 20px;
+}
+#title #circle {
   position: absolute;
+  width: 30%;
+  margin-top: -5%;
+  left: 35%;
+}
+#play {
+  width: 70%;
+}
+#coucou {
+  position: absolute;
+  right: -80px;
+  bottom: 0;
+}
+
+.socle {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-200px);
 }

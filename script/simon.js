@@ -2,7 +2,7 @@ let score = 0;
 let isUserTurn = false;
 let delay = 1000;
 
-const possibleColors = ["orange", "purple", "red", "yellow", "blue", "green"];
+const possibleColors = ["yellow", "purple", "red", "orange", "blue", "green"];
 const state = document.querySelector("#turn");
 
 let gameColorsPattern = [];
@@ -50,7 +50,9 @@ const userChooseAColor = () => {
 
       // Vérification du motif
       if (clikedColors.length === gameColorsPattern.length) {
-        const isCorrectPattern = clikedColors.every((color, index) => color === gameColorsPattern[index]);
+        const isCorrectPattern = clikedColors.every(
+          (color, index) => color === gameColorsPattern[index]
+        );
 
         if (isCorrectPattern) {
           score++;
@@ -61,9 +63,28 @@ const userChooseAColor = () => {
           simonTurn(); // Passer au tour de Simon
           delay = delay - 50;
         } else {
-           let layerEnd = document.getElementById('layer-blur');
-           layerEnd.style.display = "block";
-          resetGame();
+          let layerEnd = document.getElementById("layer-blur");
+          layerEnd.style.display = "grid";
+          document.querySelector("#score-fin").innerHTML = score;
+          if (score <= 3) {
+            document.querySelector("#message").innerHTML =
+              "Mémoire de poisson rouge";
+          } else if (score <= 6) {
+            document.querySelector("#message").innerHTML =
+              "Pas mal, mais tu peux mieux faire !";
+          } else if (score <= 10) {
+            document.querySelector("#message").innerHTML =
+              "Bien joué ! Tu commences à te souvenir !";
+          } else {
+            document.querySelector("#message").innerHTML =
+              "Impressionnant ! Tu es un vrai maître de la mémoire !";
+          }
+          let replay = document.querySelector("#replay");
+          replay.addEventListener("click", () => {
+            resetGame();
+            layerEnd.style.display = "none";
+            updateCompteur(); // Démarrer le compteur
+          });
         }
       }
     };
@@ -81,13 +102,28 @@ const resetGame = () => {
   clikedColors = [];
   gameColorsPattern = [];
   document.querySelector("#score").innerHTML = score;
-  simonTurn();
   updateTurnDisplay();
+  count = 3;
 };
 
 const updateTurnDisplay = () => {
-  state.innerHTML = isUserTurn ? "You" : "Simon";
+  state.innerHTML = isUserTurn ? "Toi" : "Simon";
 };
 
 // Démarre le jeu pour la première fois
-simonTurn();
+
+let compteur = document.querySelector("#compteur");
+let count = 3;
+
+function updateCompteur() {
+  if (count > 0) {
+    compteur.innerHTML = count;
+    count--;
+    setTimeout(updateCompteur, 1000); // 1000 ms = 1 seconde
+  } else {
+    compteur.innerHTML = "0"; // Afficher 0 à la fin
+    simonTurn(); // Démarrer le tour de Simon après le compteur
+  }
+}
+
+updateCompteur(); // Démarrer le compteur

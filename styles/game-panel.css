@@ -1,71 +1,53 @@
 .game-container {
-  padding: 50px 0;
+  padding: 100px 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 70px;
+  position: relative;
 }
 
 .choices {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-.game-button {
-  font-size: 16px;
-  padding: 12px 25px;
-  border-radius: 10px;
-  border: none;
-  color: black;
-  cursor: pointer;
+  width: 100%;
+  position: relative;
+  background-image: url(/assets/img/png/socle.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+
 }
 
 .game-button:hover {
   opacity: 0.8;
 }
 
-.game-button:nth-child(1) {
-  background-color: orange;
-}
-
-.game-button:nth-child(2) {
-  background-color: violet;
-}
-
-.game-button:nth-child(3) {
-  background-color: red;
-}
-
-.game-button:nth-child(4) {
-  background-color: yellow;
-}
-
-.game-button:nth-child(5) {
-  background-color: blue;
-}
-
-.game-button:nth-child(6) {
-  background-color: green;
-}
-
 #background-screen {
-  width: 100%;
-  height: 300px;
-  border: 1px solid black;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 440px;
+  width: 781px;
+  overflow: hidden;
 }
+
 
 p {
   font-size: 24px;
 }
 
 .end-panel {
-  border: 1px solid black;
-  height: 400px;
-  width: 600px;
-  display: grid;
-  place-content: center;
-  background-color: black;
+  height: 521px;
+  width: 923px;
+  background-image: url(/assets/img/png/Ecrant\ de\ fin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  padding: 100px 15px;
   color: white;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 #layer-blur {
@@ -74,10 +56,144 @@ p {
   place-content: center;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: none;
 }
+
+body {
+  background-image: url(/assets/img/png/indexbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+}
+
+.lampe img {
+  width: 250px;
+}
+
+.lampe button {
+  position: absolute;
+}
+
+.lampe {
+  position: relative;
+}
+
+.game-button {
+  font-size: 16px;
+  border-radius: 50%;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.jaune {
+  background-color: #ffd51b;
+  width: 170px;
+  height: 170px;
+  top: 50px;
+  left: 50px;
+}
+
+.purple {
+  background-color: #bf00ff;
+  width: 170px;
+  height: 170px;
+  top: 40px;
+  left: 50px;
+}
+
+.red {
+  background-color: #f0252f;
+  width: 170px;
+  height: 170px;
+  top: 40px;
+  left: 50px;
+}
+
+.orange {
+  background-color: #ff7627;
+  width: 170px;
+  height: 170px;
+  top: 40px;
+  left: 40px;
+}
+
+.blue {
+  background-color: #27deff;
+  width: 170px;
+  height: 170px;
+  top: 45px;
+  left: 40px;
+}
+
+.green {
+  background-color: #41ff27;
+  width: 170px;
+  height: 170px;
+  top: 60px;
+  left: 40px;
+}
+
+.body-font {
+  font-family: var(--primary-font);
+  font-size: 48px;
+}
+
+.game-container p {
+  color: #f539d7;
+  width: fit-content;
+}
+
+
+.score-container section{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-direction: column;
+  width: fit-content;
+}
+
+
+.message-fin {
+  height: fit-content;
+  padding: 10px 10px;
+  background-color: #f539d7;
+  border-radius: 50px 50px 50px 0;
+ 
+}
+
+.avatar-fin {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 50px;
+  
+}
+
+.action-button button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-family: var(--primary-font);
+  font-size: 48px;
+  cursor: pointer;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 200px;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
